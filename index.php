@@ -2,9 +2,7 @@
 
 //Gestion du mode sombre via cookies
 if (isset($_COOKIE['dark'])) {
-    if ($_COOKIE['dark'] == 1)
-        $dark = true;
-    else $dark = false;
+   $_COOKIE['dark'] == 1 ? $dark = true : $dark = false;
 }
 
 if (isset($_GET['dark']))
@@ -21,12 +19,12 @@ if (isset($_GET['dark']))
 
 //Gestion du compteur des visites via cookies
 if (isset($_COOKIE['visites'])) {
-    $visites = $_COOKIE['visites'] + 1;
+    $visites = (int)$_COOKIE['visites'] + 1;
     setcookie('visites', $visites);
 }
 else {
-    setcookie('visites', 1);
     $visites = 1;
+    setcookie('visites', $visites);
 }
 ?>
 
@@ -40,19 +38,24 @@ else {
             background-color: <?= $dark ? 'black' : 'white'; ?>;
             color: <?= $dark ? 'white' : 'black'; ?>;
         }
+        a {
+            text-decoration: none;
+            color: <?= $dark ? 'white' : 'black'; ?>;
         }
     </style>
     <title>Atelier Cookies</title>
 </head>
 <body>
 <header>
+    <div style="text-align: center">
+    <h1>Atelier Cookies Mode sombre | Nombre de visites</h1>
     <a href="?dark=1"><strong>Mode Sombre</strong></a>
-    <br>
-    <br>
+        <span> | </span>
     <a href="?dark=0"><strong>Mode Clair</strong></a>
+    </div>
 </header>
 <main>
-    <h1>C'est la <?= $visites?> fois que vous visitez ce site</h1>
+    <p>C'est la <strong><?= $visites?> fois</strong> que vous visitez ce site</p>
 </main>
 </body>
 </html>

@@ -9,7 +9,7 @@ if (isset($_GET['dark']))
 {
     if ($_GET['dark'] == 1) {
         $dark = true;
-        setcookie('dark', 1, time() + (86400 * 30));
+        setcookie('dark', 1, time() + (86400 * 30)); //Cookie expires in 30 days
     }
     else if ($_GET['dark'] == 0) {
         $dark = false;
@@ -20,7 +20,7 @@ if (isset($_GET['dark']))
 //Gestion du compteur des visites via cookies
 if (isset($_COOKIE['visites'])) {
     $visites = (int)$_COOKIE['visites'] + 1;
-    setcookie('visites', $visites, time() + (86400 * 30)); //Cookie expires in 30 days
+    setcookie('visites', $visites, time() + (86400 * 30));
 }
 else {
     $visites = 1;

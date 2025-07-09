@@ -9,7 +9,8 @@ if (isset($_GET['dark']))
 {
     if ($_GET['dark'] == 1) {
         $dark = true;
-        setcookie('dark', 1, time() + (86400 * 30)); //Cookie expires in 30 days
+        setcookie('dark', 1, time() + (86400 * 30)); //Cookie expires in 30 days, time() is the actual time,
+                                                    // 86400 is the number of seconds per day
     }
     else if ($_GET['dark'] == 0) {
         $dark = false;

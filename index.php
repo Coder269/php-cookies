@@ -35,6 +35,9 @@ else {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        header {
+            text-align: center;
+        }
         body {
             background-color: <?= $dark ? 'black' : 'white'; ?>;
             color: <?= $dark ? 'white' : 'black'; ?>;
@@ -48,12 +51,10 @@ else {
 </head>
 <body>
 <header>
-    <div style="text-align: center">
     <h1>Atelier Cookies Mode sombre | Nombre de visites</h1>
     <a href="?dark=1"><strong>Mode Sombre</strong></a>
         <span> | </span>
     <a href="?dark=0"><strong>Mode Clair</strong></a>
-    </div>
 </header>
 <main>
     <p>C'est la <strong><?= $visites?> fois</strong> que vous visitez ce site</p>

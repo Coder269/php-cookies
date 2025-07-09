@@ -9,22 +9,22 @@ if (isset($_GET['dark']))
 {
     if ($_GET['dark'] == 1) {
         $dark = true;
-        setcookie('dark', 1);
+        setcookie('dark', 1, time() + (86400 * 30));
     }
     else if ($_GET['dark'] == 0) {
         $dark = false;
-        setcookie('dark', 0);
+        setcookie('dark', 0, time() + (86400 * 30));
     }
 }
 
 //Gestion du compteur des visites via cookies
 if (isset($_COOKIE['visites'])) {
     $visites = (int)$_COOKIE['visites'] + 1;
-    setcookie('visites', $visites);
+    setcookie('visites', $visites, time() + (86400 * 30)); //Cookie expires in 30 days
 }
 else {
     $visites = 1;
-    setcookie('visites', $visites);
+    setcookie('visites', $visites, time() + (86400 * 30));
 }
 ?>
 
